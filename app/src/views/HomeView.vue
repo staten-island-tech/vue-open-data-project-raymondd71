@@ -1,6 +1,7 @@
+<template>
+  <div class="container"></div>
+</template>
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-
 import { ref, onMounted } from 'vue'
 const baby = ref('')
 async function getinfant() {
@@ -10,11 +11,6 @@ async function getinfant() {
 }
 
 onMounted(() => {
-  getPokemon()
+  getinfant()
 })
 </script>
-<template>
-  <main>
-    <TheWelcome />
-  </main>
-</template>
