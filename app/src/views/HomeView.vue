@@ -1,25 +1,25 @@
 <template>
   <div class="container">
-    <h1>Baby Death</h1>
-    <babytoddler
-      v-for="(toddler, index) in baby"
-      :key="toddler.materal_race_or_ethnicity"
-      :toddler="toddler"
+    <h1>SHSAT Acceptance</h1>
+    <studentaccept
+      v-for="(student, index) in students"
+      :key="student.feeder_school_name"
+      :students="student"
       :id="index"
     />
   </div>
 </template>
 <script setup>
 import { ref, onMounted } from 'vue'
-import babytoddler from '@/components/babytoddler.vue'
-const baby = ref('')
-async function getinfant() {
-  let res = await fetch('https://data.cityofnewyork.us/resource/fcau-jc6k.json')
+import studentaccept from '@/components/studentaccept.vue'
+const students = ref('')
+async function studentresult() {
+  let res = await fetch('https://data.cityofnewyork.us/resource/k8ah-28f4.json')
   let data = await res.json()
-  baby.value = data
+  students.value = data
 }
 
 onMounted(() => {
-  getinfant()
+  studentresult()
 })
 </script>

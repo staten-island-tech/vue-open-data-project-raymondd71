@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>{{ toddler.materal_race_or_ethnicity }}</h2>
-    <h3>{{ toddler.year }}</h3>
+    <h2>School Name: {{ students.feeder_school_name }}</h2>
+    <h3>Number of Offers: {{ students.number_of_offers }}</h3>
     <h3>{{ id + 1 }}</h3>
     <br />
   </div>
@@ -9,7 +9,7 @@
 
 <script setup>
 const props = defineProps({
-  toddler: Object,
+  students: Object,
   id: Number,
 })
 </script>
