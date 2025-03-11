@@ -9,6 +9,9 @@ ChartJS.register(ArcElement, Tooltip, Legend)
 const props = defineProps({
   data: Object,
 })
+const chartOptions = {
+  responseive: true,
+}
 </script>
 
 <style scoped></style>
