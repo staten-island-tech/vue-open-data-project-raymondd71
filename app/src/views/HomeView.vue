@@ -1,12 +1,14 @@
 <template>
-  <div class="container">
-    <h1>SHSAT Acceptance</h1>
-    <studentaccept
-      v-for="(student, index) in students"
-      :key="student.feeder_school_name"
-      :students="student"
-      :id="index"
-    />
+  <div>
+    <h1 class="text-center m-auto">SHSAT Acceptance</h1>
+    <div class="container flex flex-wrap w-[90%] justify-between m-auto">
+      <studentaccept
+        v-for="(student, index) in students"
+        :key="student.feeder_school_name"
+        :students="student"
+        :id="index"
+      />
+    </div>
   </div>
 </template>
 <script setup>
