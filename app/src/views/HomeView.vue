@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-center m-auto">SHSAT Acceptance</h1>
+    <h1 class="text-center m-auto mb-[1rem]">SHSAT Acceptance</h1>
     <div class="container flex flex-wrap w-[90%] justify-between m-auto">
       <studentaccept
         v-for="(student, index) in students"
