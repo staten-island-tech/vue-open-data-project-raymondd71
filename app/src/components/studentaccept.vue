@@ -29,5 +29,3 @@ const props = defineProps({
 </script>
 
 <style scoped></style>
-students.count_of_tester = parseInt(students.count_of_testers, 10) students.number_of_offers =
-parseInt(students.number_of_offers, 10)

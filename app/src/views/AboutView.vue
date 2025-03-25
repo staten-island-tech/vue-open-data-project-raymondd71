@@ -1,15 +1,27 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <h1 class="text-center m-auto mb-[1rem]">SAT Acceptance</h1>
+    <div class="container flex flex-wrap w-[90%] justify-between m-auto">
+      <sataccept
+        v-for="(child, index) in childs"
+        :key="child.school_name"
+        :childs="child"
+        :id="index"
+      />
+    </div>
   </div>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<script setup>
+import { ref, onMounted } from 'vue'
+import sataccept from '@/components/sataccept.vue'
+const childs = ref('')
+async function childresult() {
+  let res = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
+  let data = await res.json()
+  childs.value = data
 }
-</style>
+
+onMounted(() => {
+  childresult()
+})
+</script>
