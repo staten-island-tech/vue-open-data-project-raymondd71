@@ -1,27 +1,22 @@
 <template>
-  <div>
-    <h1 class="text-center m-auto mb-[1rem]">SAT Acceptance</h1>
-    <div class="container flex flex-wrap w-[90%] justify-between m-auto">
-      <sataccept
-        v-for="(child, index) in childs"
-        :key="child.school_name"
-        :childs="child"
-        :id="index"
-      />
-    </div>
+  <div class="flex justify-around">
+    <BarChart class="w-[40%]" :key="chartKey" :data="chartData" />
   </div>
 </template>
+
 <script setup>
-import { ref, onMounted } from 'vue'
-import sataccept from '@/components/sataccept.vue'
-const childs = ref('')
-async function childresult() {
-  let res = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
+import BarChart from '@/components/BarChart.vue'
+import { reactive, onMounted, ref } from 'vue'
+const students = ref('')
+async function studentresult() {
+  let res = await fetch('https://data.cityofnewyork.us/resource/k8ah-28f4.json')
   let data = await res.json()
-  childs.value = data
+  students.value = data
 }
 
 onMounted(() => {
-  childresult()
+  studentresult()
 })
 </script>
+
+<style scoped></style>
