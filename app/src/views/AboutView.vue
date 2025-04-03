@@ -1,14 +1,10 @@
-<template>
-  <div><BarChart :data="chartData" /></div>
-</template>
-
 <script>
 import { reactive, onMounted, ref } from 'vue'
 import BarChart from '@/components/BarChart.vue'
 
 const students = reactive([0, 0, 0])
 const chartKey = ref(0)
-async function studentresult() {
+async function results() {
   let res = await fetch('https://data.cityofnewyork.us/resource/k8ah-28f4.json')
   let data = await res.json()
   data.forEach((el) => {
@@ -31,16 +27,19 @@ async function studentresult() {
 }
 
 onMounted(() => {
-  studentresult()
+  results()
 })
-const chartData = {
+const chartData = reactive({
   labels: ['Non-Test Takers', 'Rejected Test Takers', 'Accepted Test Takers'],
   datasets: [
     {
       label: 'Students',
       backgroundColor: '#42A5F5',
-      data: [0, 0, 0],
+      data: students,
     },
   ],
-}
+})
 </script>
+<template>
+  <BarChart :data="chartData" :key="chartKey" />
+</template>
