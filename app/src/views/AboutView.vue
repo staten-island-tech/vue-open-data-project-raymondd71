@@ -1,7 +1,6 @@
 <script>
 import { reactive, onMounted, ref } from 'vue'
 import BarChart from '@/components/BarChart.vue'
-
 const students = reactive([0, 0, 0])
 const chartKey = ref(0)
 async function results() {
